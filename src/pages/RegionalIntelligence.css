@@ -260,3 +260,23 @@
   color: var(--primary);
   margin-bottom: 0.2rem;
 }
+
+.tooltip-risk {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 0.2rem;
+}
+
+/* ── Pulse ring for critical states ── */
+.pulse-ring {
+  animation: pulse-map 2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes pulse-map {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50%       { opacity: 0.35; transform: scale(1.3); }
+}
