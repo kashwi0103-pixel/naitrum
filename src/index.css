@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import './components.css';
+
+:root {
+  /* Color System - NETRAM Redesign */
+  --bg-primary: #F8F6EF; /* Warm Ivory */
+  --bg-secondary: #FFFFFF; /* White for cards */
+  --primary: #075E63; /* Deep Teal */
+  --secondary: #2F7D5A; /* Forest Green (Success) */
+  --info: #175B91; /* Institutional Blue */
+  --accent: #E5A52B; /* Saffron (Attention) */
+  --urgent: #C94B35; /* Terracotta Red (Urgent) */
+  --text-primary: #173B3D;
+  --text-secondary: #5C6B6D;
+  
+  /* Soft / Status Surfaces */
+  --surface-green: #EAF5EF; /* Stable / Complete */
+  --surface-blue: #EAF2F8; /* Info / Screening */
+  --surface-orange: #FFF1E5; /* Attention / Warn */
+  --surface-red: #F9EAE8; /* Urgent bg */
+
+  /* Legacy Status Colors (mapped to new system to prevent breakages) */
+  --status-pass: var(--secondary);
+  --status-borderline: var(--accent);
+  --status-fail: var(--urgent);
+  --status-critical: var(--urgent);
+  --digital-accent: var(--info);
+  --accent-primary: var(--primary);
+  --accent-warm: var(--surface-orange);
+
+  /* Shadows (Subtle, single layer) */
+  --shadow-sm: 0 1px 2px rgba(7, 94, 99, 0.04);
+  --shadow-md: 0 4px 12px rgba(7, 94, 99, 0.06);
+  --shadow-lg: 0 8px 24px rgba(7, 94, 99, 0.08);
+
+  /* Border Radius (Institutional, comfortable, not oversized) */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+  
+  /* Structural Border */
+  --border-subtle: 1px solid rgba(7, 94, 99, 0.1);
+  
+  /* Transitions */
+  --transition-normal: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+  color: var(--text-primary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Utilities */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.gap-2 { gap: 0.5rem; }
+.gap-4 { gap: 1rem; }
+.gap-6 { gap: 1.5rem; }
+.gap-8 { gap: 2rem; }
+
+/* Container */
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Micro-animations */
+.fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}

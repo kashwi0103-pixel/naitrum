@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+    <defs>
+        <linearGradient id="organicGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#006666"/>
+            <stop offset="100%" stop-color="#2E8B57"/>
+        </linearGradient>
+        <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFD700"/>
+            <stop offset="100%" stop-color="#FF8C00"/>
+        </linearGradient>
+        <radialGradient id="pupilGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#1E90FF"/>
+            <stop offset="70%" stop-color="#00008B"/>
+            <stop offset="100%" stop-color="#000044"/>
+        </radialGradient>
+    </defs>
+
+    <!-- Center Pupil -->
+    <circle cx="250" cy="250" r="55" fill="url(#pupilGrad)" />
+    <!-- Pupil highlight -->
+    <circle cx="230" cy="230" r="12" fill="#FFFFFF" opacity="0.6" />
+
+    <!-- Left Organic Half -->
+    <g fill="url(#organicGrad)">
+        <!-- Outer Left Arc (thick curve) -->
+        <path d="M 250 30 A 220 220 0 0 0 250 470 A 250 250 0 0 1 250 30 Z" />
+        
+        <!-- Left Eyelid Top -->
+        <path d="M 250 160 C 170 160 100 210 60 250 C 100 210 170 185 250 185 Z" />
+        <!-- Left Eyelid Bottom -->
+        <path d="M 250 340 C 170 340 100 290 60 250 C 100 290 170 315 250 315 Z" />
+        
+        <!-- Leaves -->
+        <path d="M 60 250 C 30 220 10 230 5 260 C 20 275 45 270 60 250 Z" />
+        <path d="M 100 150 C 70 110 40 120 30 150 C 55 165 80 165 100 150 Z" />
+        <path d="M 100 350 C 70 390 40 380 30 350 C 55 335 80 335 100 350 Z" />
+        <path d="M 160 60 C 140 20 100 25 85 55 C 115 70 140 75 160 60 Z" />
+        <path d="M 160 440 C 140 480 100 475 85 445 C 115 430 140 425 160 440 Z" />
+    </g>
+
+    <!-- Right Tech Half -->
+    <g fill="url(#techGrad)">
+        <!-- Outer Right Arc -->
+        <path d="M 250 30 A 220 220 0 0 1 250 470 A 250 250 0 0 0 250 30 Z" />
+        
+        <!-- Right Eyelid Top -->
+        <path d="M 250 160 L 330 160 L 400 210 L 440 250 L 400 220 L 330 185 L 250 185 Z" />
+        <!-- Right Eyelid Bottom -->
+        <path d="M 250 340 L 330 340 L 400 290 L 440 250 L 400 280 L 330 315 L 250 315 Z" />
+        
+        <!-- Circuit Lines and Nodes -->
+        <!-- Center Right -->
+        <path d="M 440 250 L 460 250 L 475 235 L 485 235" fill="none" stroke="url(#techGrad)" stroke-width="8" stroke-linejoin="miter" stroke-linecap="round" />
+        <circle cx="485" cy="235" r="8" />
+        
+        <!-- Top Outer -->
+        <path d="M 400 210 L 420 190 L 450 190 L 460 180" fill="none" stroke="url(#techGrad)" stroke-width="8" stroke-linejoin="miter" stroke-linecap="round" />
+        <circle cx="460" cy="180" r="8" />
+
+        <!-- Bottom Outer -->
+        <path d="M 400 290 L 420 310 L 450 310 L 460 320" fill="none" stroke="url(#techGrad)" stroke-width="8" stroke-linejoin="miter" stroke-linecap="round" />
+        <circle cx="460" cy="320" r="8" />
+
+        <!-- Top Highest -->
+        <path d="M 330 100 L 360 70 L 390 70 L 410 50" fill="none" stroke="url(#techGrad)" stroke-width="8" stroke-linejoin="miter" stroke-linecap="round" />
+        <circle cx="410" cy="50" r="8" />
+
+        <!-- Bottom Lowest -->
+        <path d="M 330 400 L 360 430 L 390 430 L 410 450" fill="none" stroke="url(#techGrad)" stroke-width="8" stroke-linejoin="miter" stroke-linecap="round" />
+        <circle cx="410" cy="450" r="8" />
+        
+        <!-- Inner circuit branches -->
+        <path d="M 280 185 L 280 220 L 310 220" fill="none" stroke="url(#techGrad)" stroke-width="6" stroke-linejoin="miter" stroke-linecap="round" />
+        <circle cx="310" cy="220" r="6" />
+        
+        <path d="M 280 315 L 280 280 L 310 280" fill="none" stroke="url(#techGrad)" stroke-width="6" stroke-linejoin="miter" stroke-linecap="round" />
+        <circle cx="310" cy="280" r="6" />
+    </g>
+</svg>

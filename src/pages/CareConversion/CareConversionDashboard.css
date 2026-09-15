@@ -1,0 +1,385 @@
+/* ============================================================
+   CARE CONVERSION DASHBOARD — CSS
+   Reuses existing design tokens. Only adds layout specific to this module.
+   ============================================================ */
+
+.cc-main {
+  padding: 2rem;
+  background: var(--bg-primary);
+  min-height: 100vh;
+}
+
+/* Header */
+.cc-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.cc-header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.25rem 0;
+}
+
+.cc-header p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Stats Grid */
+.cc-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.cc-stat-card {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1rem;
+  border: var(--border-subtle);
+  border-top: 3px solid var(--stat-color, var(--primary));
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.cc-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.cc-stat-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--stat-color, var(--text-primary));
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.cc-stat-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+/* Two-column layout */
+.cc-body-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (max-width: 1100px) {
+  .cc-body-grid { grid-template-columns: 1fr; }
+}
+
+/* Queue Section */
+.cc-queue-section {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  border: var(--border-subtle);
+  overflow: hidden;
+}
+
+.cc-queue-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: var(--border-subtle);
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.cc-queue-header h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.cc-filters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.cc-filter-btn {
+  font-size: 0.78rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+  border: var(--border-subtle);
+  background: var(--bg-primary);
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: var(--transition-normal);
+}
+
+.cc-filter-btn:hover, .cc-filter-btn.active {
+  background: var(--primary);
+  color: var(--bg-secondary);
+  border-color: var(--primary);
+}
+
+/* Table */
+.cc-table-wrapper {
+  overflow-x: auto;
+}
+
+.cc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.cc-table thead {
+  background: var(--bg-primary);
+}
+
+.cc-table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+}
+
+.cc-table th:hover { color: var(--primary); }
+
+.cc-table td {
+  padding: 0.875rem 1rem;
+  border-bottom: var(--border-subtle);
+  vertical-align: middle;
+}
+
+.cc-table tbody tr {
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.cc-table tbody tr:hover { background: rgba(7, 94, 99, 0.02); }
+
+.cc-prob-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cc-prob-bar {
+  width: 60px;
+  height: 6px;
+  background: rgba(7, 94, 99, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.cc-prob-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s;
+}
+
+.cc-prob-text {
+  font-weight: 700;
+  font-size: 0.85rem;
+  min-width: 36px;
+}
+
+.cc-badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.cc-action-btn {
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 600;
+  border: 1px solid;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  white-space: nowrap;
+}
+
+/* Right Panel */
+.cc-right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Funnel */
+.cc-funnel-card {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  border: var(--border-subtle);
+  padding: 1.25rem 1.5rem;
+}
+
+.cc-funnel-card h2 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 1.25rem 0;
+}
+
+.cc-funnel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cc-funnel-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.cc-funnel-bar-wrap {
+  flex: 1;
+  height: 22px;
+  background: var(--bg-primary);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.cc-funnel-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.6s ease;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 6px;
+}
+
+.cc-funnel-bar-fill span {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.cc-funnel-label {
+  width: 90px;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.cc-funnel-value {
+  width: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: right;
+  font-size: 0.85rem;
+}
+
+/* Priority Panel */
+.cc-priority-card {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  border: var(--border-subtle);
+  padding: 1.25rem 1.5rem;
+}
+
+.cc-priority-card h2 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 1rem 0;
+}
+
+.cc-priority-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.875rem 0;
+  border-bottom: var(--border-subtle);
+  cursor: pointer;
+  transition: background 0.1s;
+  border-radius: var(--radius-md);
+}
+
+.cc-priority-item:last-child { border-bottom: none; }
+.cc-priority-item:hover { background: var(--bg-primary); }
+
+.cc-priority-rank {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.cc-priority-info {
+  flex: 1;
+}
+
+.cc-priority-name {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+.cc-priority-details {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.cc-priority-action {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--primary);
+  background: var(--surface-blue);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Notification Toast */
+.cc-toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--primary);
+  color: #fff;
+  padding: 0.875rem 1.25rem;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  box-shadow: var(--shadow-lg);
+  z-index: 9999;
+  animation: cc-slide-in 0.3s ease;
+  max-width: 320px;
+}
+
+@keyframes cc-slide-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

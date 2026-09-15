@@ -1,0 +1,114 @@
+.sidebar {
+  width: 280px;
+  background-color: var(--bg-primary);
+  border-right: var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.sidebar-header {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-icon {
+  /* Logo styles mostly handled by actual image now, this handles fallbacks */
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.logo-text {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--primary);
+  letter-spacing: 0.02em;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: var(--transition-normal);
+  border-left: 3px solid transparent; /* Prepare for active accent */
+}
+
+.nav-item:hover {
+  background-color: rgba(7, 94, 99, 0.04);
+  color: var(--text-primary);
+}
+
+.nav-item.active {
+  background-color: var(--surface-green); /* Pale mint background */
+  color: var(--primary); /* Teal text */
+  border-left-color: var(--primary); /* Subtle left accent */
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.nav-item.active .nav-icon {
+  color: var(--primary);
+}
+
+.sidebar-footer {
+  padding: 2rem 1rem;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: var(--border-subtle);
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  background-color: var(--info);
+  color: white;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+.user-role {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
