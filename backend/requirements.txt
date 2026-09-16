@@ -1,8 +1,7 @@
 fastapi
-uvicorn
+uvicorn[standard]
 onnxruntime
 Pillow
 numpy
 python-multipart
-torch
-torchvision
+huggingface_hub

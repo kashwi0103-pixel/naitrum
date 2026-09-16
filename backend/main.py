@@ -11,7 +11,7 @@ import hashlib
 
 app = FastAPI(title="DR-Sahayak Backend (ONNX Runtime + IDRiD Analytics)")
 
-# Allow CORS for local development
+# Allow CORS for all origins (Vercel frontend + local dev)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -20,8 +20,33 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ----------------- Load ONNX Model -----------------
+# ----------------- Download Model from HuggingFace if missing -----------------
 MODEL_PATH = "vessel_unet.onnx"
+
+def download_model_if_missing():
+    """Download the ONNX model from HuggingFace Hub if not present locally."""
+    if os.path.exists(MODEL_PATH):
+        print(f"Model already present: {MODEL_PATH}")
+        return
+    hf_repo = os.environ.get("HF_MODEL_REPO", "")
+    if not hf_repo:
+        print("WARNING: HF_MODEL_REPO env var not set. Cannot download model.")
+        return
+    print(f"Downloading model from HuggingFace: {hf_repo} ...")
+    try:
+        from huggingface_hub import hf_hub_download
+        path = hf_hub_download(
+            repo_id=hf_repo,
+            filename="vessel_unet.onnx",
+            local_dir=".",
+        )
+        print(f"Model downloaded to: {path}")
+    except Exception as e:
+        print(f"ERROR downloading model: {e}")
+
+download_model_if_missing()
+
+# ----------------- Load ONNX Model -----------------
 session = None
 
 if os.path.exists(MODEL_PATH):
